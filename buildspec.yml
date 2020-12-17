@@ -1,8 +1,33 @@
 version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+  #secrets-manager:
+     # key: secret-id:json-key:version-stage:version-id
+     # key: secret-id:json-key:version-stage:version-id
+  #exported-variables:
+     # - variable
+     # - variable
+  #git-credential-helper: yes
+#batch:
+  #fast-fail: true
+  #build-list:
+  #build-matrix:
+  #build-graph:
 phases:
-install:
-commands:
-      - echo Installing python 3.6...
+  install:
+    #If you use the Ubuntu standard image 2.0 or later, you must specify runtime-versions.
+    #If you specify runtime-versions and use an image other than Ubuntu standard image 2.0, the build fails.
+    #runtime-versions:
+      # name: version
+      # name: version
+    commands:
+    - echo Installing python 3.6...
       - yum -y groupinstall development
       - yum -y install zlib-devel
       - wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tar.xz
@@ -11,17 +36,36 @@ commands:
       - ./configure
       - make
       - make install 
-pre_build:
-commands:
-- echo Installing dependencies...
-- python3 -V
-- yarn install
-build:
-commands:
-- echo Building...
-- yarn build
+  pre_build:
+    commands:
+    - echo Installing dependencies...
+     #- python3 -V
+     #- yarn install
+  build:
+    commands:
+     - echo Building...
+     #- yarn build
+  #post_build:
+    #commands:
+      # - command
+      # - command
+#reports:
+  #report-name-or-arn:
+    #files:
+      # - location
+      # - location
+    #base-directory: location
+    #discard-paths: yes
+    #file-format: JunitXml | CucumberJson
 artifacts:
-files:
-- "**/*"
-discard-paths: no
-base-directory: dist
+  files:
+   #- "**/*"
+  #name: $(date +%Y-%m-%d)
+  #discard-paths: no
+  #base-directory: dist
+   - buildspec.yml
+   - target/SampleMavenTomcatApp.war
+   - scripts/*
+#cache:
+  #paths:
+    # - paths
