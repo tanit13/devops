@@ -16,7 +16,7 @@ setup(
     install_requires=[],
     extras_require={},      # optional features that other packages can require
                             #   like 'helloworld[foo]'
-    package_data = {"helloworld": ["VERSION.txt"]},
+    package_data = {"helloworld???": ["VERSION.txt"]},
     author="David Barnett",
     author_email = "davidbarnett2@gmail.com",
     description = "The familiar example program in Python",
